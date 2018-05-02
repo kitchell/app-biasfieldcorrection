@@ -4,6 +4,6 @@
 #PBS -V
 
 module load ants
-rm -f t1.nii.gz
+rm -f dwi.nii.gz
 
-N4BiasFieldCorrection -d 3 -i $(jq -r .t1 config.json) -o t1.nii.gz -s 4 -b [200] -c [50x50x50x50, 0.000001]
+N4BiasFieldCorrection -d 4 -i $(jq -r .dwi config.json) -o dwi.nii.gz -s 4 -b [600] -c [50x50x50x50, 0.000001]
