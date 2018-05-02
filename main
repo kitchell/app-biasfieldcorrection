@@ -6,4 +6,8 @@
 module load ants
 rm -f dwi.nii.gz
 
+cp $(jq -r .bvals config.json) ./dwi.bvals
+cp $(jq -r .bvecs config.json) ./dwi.bvecs
+
+
 N4BiasFieldCorrection -d 4 -i $(jq -r .dwi config.json) -o dwi.nii.gz -s 4 -b [600] -c [50x50x50x50, 0.000001]
