@@ -13,4 +13,4 @@ cp $(jq -r .bvecs config.json) ./dwi.bvecs
 N4BiasFieldCorrection -d 3 -i $(jq -r .dwi config.json) -o [dwiants.nii.gz, bias.nii.gz] -s 4 -b [600] -c [50x50x50x50, 0.000001]
 
 
-ImageMath -d 3 dwi.nii.gz / $(jq -r .dwi config.json) bias.nii.gz
+ImageMath 3 dwi.nii.gz / $(jq -r .dwi config.json) bias.nii.gz
