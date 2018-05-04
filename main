@@ -13,4 +13,4 @@ rm -f t1.nii.gz
 
 N4BiasFieldCorrection -d 3 -i $(jq -r .t1 config.json) -o [t1ants.nii.gz, bias.nii.gz] -s 4 -b [200] -c [50x50x50x50, 0.000001]
 
-ImageMath -d 3 t1.nii.gz / $(jq -r .t1 config.json) bias.nii.gz
+ImageMath 3 t1.nii.gz / $(jq -r .t1 config.json) bias.nii.gz
