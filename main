@@ -11,4 +11,4 @@ rm -f t1.nii.gz
 #singularity exec -e docker://nipype/nipype -c "N4BiasFieldCorrection -d 3 -i $(jq -r .t1 config.json) -o t1.nii.gz -s 4 -b [200] -c [50x50x50x50, 0.000001]"
 
 
-N4BiasFieldCorrection -d 3 -i $(jq -r .t1 config.json) -o bias.nii.gz -s 4 -b [200] -c [50x50x50x50, 0.000001]
+N4BiasFieldCorrection -d 3 -i $(jq -r .t1 config.json) -o [t1.nii.gz, bias.nii.gz] -s 4 -b [200] -c [50x50x50x50, 0.000001]
